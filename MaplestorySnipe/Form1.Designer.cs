@@ -40,6 +40,8 @@
             this.itemSniper = new System.Windows.Forms.TabPage();
             this.label17 = new System.Windows.Forms.Label();
             this.allManual = new System.Windows.Forms.CheckBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.setCoordsButton = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -107,8 +109,14 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.setCoordsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.snipeRunToolTip = new System.Windows.Forms.ToolTip(this.components);
-            this.label14 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.trackBar1 = new System.Windows.Forms.TrackBar();
+            this.AutoFishDelayLabel = new System.Windows.Forms.Label();
+            this.MountSpeedStop = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.MountSpeedButton = new System.Windows.Forms.Button();
+            this.MountSpeedNum = new System.Windows.Forms.NumericUpDown();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.maxBuyPriceBox)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.itemSniper.SuspendLayout();
@@ -126,6 +134,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.atkSpeedNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.runSpeedNum)).BeginInit();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MountSpeedNum)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -179,7 +189,7 @@
             this.tabControl1.Location = new System.Drawing.Point(2, 2);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(307, 242);
+            this.tabControl1.Size = new System.Drawing.Size(314, 302);
             this.tabControl1.TabIndex = 7;
             // 
             // itemSniper
@@ -221,6 +231,25 @@
             this.allManual.Text = "All manual";
             this.allManual.UseVisualStyleBackColor = true;
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(146, 3);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(113, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "1920x1080, 1280x768";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(3, 3);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(148, 13);
+            this.label14.TabIndex = 14;
+            this.label14.Text = "*Supported Resolutions: ";
+            // 
             // setCoordsButton
             // 
             this.setCoordsButton.Location = new System.Drawing.Point(229, 37);
@@ -246,6 +275,8 @@
             // tabPage2
             // 
             this.tabPage2.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage2.Controls.Add(this.AutoFishDelayLabel);
+            this.tabPage2.Controls.Add(this.trackBar1);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.comboBox1);
             this.tabPage2.Controls.Add(this.label6);
@@ -255,7 +286,7 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(299, 216);
+            this.tabPage2.Size = new System.Drawing.Size(299, 276);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Auto Fisher";
             // 
@@ -376,7 +407,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(299, 216);
+            this.tabPage3.Size = new System.Drawing.Size(299, 276);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "AFK Tool";
             // 
@@ -638,6 +669,10 @@
             // hackTool
             // 
             this.hackTool.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.hackTool.Controls.Add(this.MountSpeedStop);
+            this.hackTool.Controls.Add(this.label3);
+            this.hackTool.Controls.Add(this.MountSpeedButton);
+            this.hackTool.Controls.Add(this.MountSpeedNum);
             this.hackTool.Controls.Add(this.label25);
             this.hackTool.Controls.Add(this.charSizeSet);
             this.hackTool.Controls.Add(this.charSizeNum);
@@ -674,14 +709,14 @@
             this.hackTool.Location = new System.Drawing.Point(4, 22);
             this.hackTool.Name = "hackTool";
             this.hackTool.Padding = new System.Windows.Forms.Padding(3);
-            this.hackTool.Size = new System.Drawing.Size(299, 216);
+            this.hackTool.Size = new System.Drawing.Size(306, 276);
             this.hackTool.TabIndex = 3;
             this.hackTool.Text = "Value Editor";
             // 
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(13, 84);
+            this.label25.Location = new System.Drawing.Point(13, 127);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(50, 13);
             this.label25.TabIndex = 33;
@@ -689,7 +724,7 @@
             // 
             // charSizeSet
             // 
-            this.charSizeSet.Location = new System.Drawing.Point(75, 98);
+            this.charSizeSet.Location = new System.Drawing.Point(75, 141);
             this.charSizeSet.Name = "charSizeSet";
             this.charSizeSet.Size = new System.Drawing.Size(38, 22);
             this.charSizeSet.TabIndex = 32;
@@ -705,7 +740,7 @@
             0,
             0,
             65536});
-            this.charSizeNum.Location = new System.Drawing.Point(16, 100);
+            this.charSizeNum.Location = new System.Drawing.Point(16, 143);
             this.charSizeNum.Maximum = new decimal(new int[] {
             50,
             0,
@@ -770,7 +805,7 @@
             // zCoordLockCheck
             // 
             this.zCoordLockCheck.AutoSize = true;
-            this.zCoordLockCheck.Location = new System.Drawing.Point(223, 128);
+            this.zCoordLockCheck.Location = new System.Drawing.Point(224, 188);
             this.zCoordLockCheck.Name = "zCoordLockCheck";
             this.zCoordLockCheck.Size = new System.Drawing.Size(50, 17);
             this.zCoordLockCheck.TabIndex = 26;
@@ -781,7 +816,7 @@
             // yCoordLockCheck
             // 
             this.yCoordLockCheck.AutoSize = true;
-            this.yCoordLockCheck.Location = new System.Drawing.Point(119, 128);
+            this.yCoordLockCheck.Location = new System.Drawing.Point(120, 188);
             this.yCoordLockCheck.Name = "yCoordLockCheck";
             this.yCoordLockCheck.Size = new System.Drawing.Size(50, 17);
             this.yCoordLockCheck.TabIndex = 25;
@@ -792,7 +827,7 @@
             // xCoordLockCheck
             // 
             this.xCoordLockCheck.AutoSize = true;
-            this.xCoordLockCheck.Location = new System.Drawing.Point(21, 128);
+            this.xCoordLockCheck.Location = new System.Drawing.Point(22, 188);
             this.xCoordLockCheck.Name = "xCoordLockCheck";
             this.xCoordLockCheck.Size = new System.Drawing.Size(50, 17);
             this.xCoordLockCheck.TabIndex = 24;
@@ -802,7 +837,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(149, 187);
+            this.button6.Location = new System.Drawing.Point(150, 247);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(92, 23);
             this.button6.TabIndex = 23;
@@ -818,7 +853,7 @@
             0,
             0,
             131072});
-            this.zCoordNum.Location = new System.Drawing.Point(204, 164);
+            this.zCoordNum.Location = new System.Drawing.Point(205, 224);
             this.zCoordNum.Maximum = new decimal(new int[] {
             99,
             0,
@@ -841,7 +876,7 @@
             0,
             0,
             131072});
-            this.yCoordNum.Location = new System.Drawing.Point(101, 164);
+            this.yCoordNum.Location = new System.Drawing.Point(102, 224);
             this.yCoordNum.Maximum = new decimal(new int[] {
             99,
             0,
@@ -864,7 +899,7 @@
             0,
             0,
             131072});
-            this.xCoordNum.Location = new System.Drawing.Point(6, 164);
+            this.xCoordNum.Location = new System.Drawing.Point(7, 224);
             this.xCoordNum.Maximum = new decimal(new int[] {
             99,
             0,
@@ -881,7 +916,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(51, 187);
+            this.button5.Location = new System.Drawing.Point(52, 247);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(92, 23);
             this.button5.TabIndex = 19;
@@ -892,7 +927,7 @@
             // zCoordsLabel
             // 
             this.zCoordsLabel.AutoSize = true;
-            this.zCoordsLabel.Location = new System.Drawing.Point(201, 148);
+            this.zCoordsLabel.Location = new System.Drawing.Point(202, 208);
             this.zCoordsLabel.Name = "zCoordsLabel";
             this.zCoordsLabel.Size = new System.Drawing.Size(22, 13);
             this.zCoordsLabel.TabIndex = 18;
@@ -901,7 +936,7 @@
             // yCoordsLabel
             // 
             this.yCoordsLabel.AutoSize = true;
-            this.yCoordsLabel.Location = new System.Drawing.Point(98, 148);
+            this.yCoordsLabel.Location = new System.Drawing.Point(99, 208);
             this.yCoordsLabel.Name = "yCoordsLabel";
             this.yCoordsLabel.Size = new System.Drawing.Size(22, 13);
             this.yCoordsLabel.TabIndex = 17;
@@ -910,7 +945,7 @@
             // xCoordLabel
             // 
             this.xCoordLabel.AutoSize = true;
-            this.xCoordLabel.Location = new System.Drawing.Point(5, 148);
+            this.xCoordLabel.Location = new System.Drawing.Point(6, 208);
             this.xCoordLabel.Name = "xCoordLabel";
             this.xCoordLabel.Size = new System.Drawing.Size(22, 13);
             this.xCoordLabel.TabIndex = 16;
@@ -919,7 +954,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(202, 123);
+            this.label23.Location = new System.Drawing.Point(203, 183);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(15, 13);
             this.label23.TabIndex = 15;
@@ -928,7 +963,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(98, 123);
+            this.label22.Location = new System.Drawing.Point(99, 183);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(15, 13);
             this.label22.TabIndex = 14;
@@ -937,7 +972,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(5, 123);
+            this.label21.Location = new System.Drawing.Point(6, 183);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(15, 13);
             this.label21.TabIndex = 13;
@@ -991,7 +1026,7 @@
             // 
             // atkStop
             // 
-            this.atkStop.Location = new System.Drawing.Point(119, 63);
+            this.atkStop.Location = new System.Drawing.Point(119, 102);
             this.atkStop.Name = "atkStop";
             this.atkStop.Size = new System.Drawing.Size(38, 22);
             this.atkStop.TabIndex = 8;
@@ -1012,7 +1047,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(13, 49);
+            this.label19.Location = new System.Drawing.Point(13, 88);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(70, 13);
             this.label19.TabIndex = 6;
@@ -1020,7 +1055,7 @@
             // 
             // atkSpeedButton
             // 
-            this.atkSpeedButton.Location = new System.Drawing.Point(75, 63);
+            this.atkSpeedButton.Location = new System.Drawing.Point(75, 102);
             this.atkSpeedButton.Name = "atkSpeedButton";
             this.atkSpeedButton.Size = new System.Drawing.Size(38, 22);
             this.atkSpeedButton.TabIndex = 5;
@@ -1030,7 +1065,7 @@
             // 
             // atkSpeedNum
             // 
-            this.atkSpeedNum.Location = new System.Drawing.Point(16, 65);
+            this.atkSpeedNum.Location = new System.Drawing.Point(16, 104);
             this.atkSpeedNum.Maximum = new decimal(new int[] {
             500,
             0,
@@ -1134,7 +1169,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(78, 243);
+            this.linkLabel1.Location = new System.Drawing.Point(91, 307);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(136, 13);
             this.linkLabel1.TabIndex = 8;
@@ -1156,30 +1191,77 @@
             this.snipeRunToolTip.InitialDelay = 200;
             this.snipeRunToolTip.ReshowDelay = 40;
             // 
-            // label14
+            // trackBar1
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(3, 3);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(148, 13);
-            this.label14.TabIndex = 14;
-            this.label14.Text = "*Supported Resolutions: ";
+            this.trackBar1.LargeChange = 10;
+            this.trackBar1.Location = new System.Drawing.Point(2, 220);
+            this.trackBar1.Maximum = 500;
+            this.trackBar1.Minimum = 200;
+            this.trackBar1.Name = "trackBar1";
+            this.trackBar1.Size = new System.Drawing.Size(294, 45);
+            this.trackBar1.SmallChange = 10;
+            this.trackBar1.TabIndex = 19;
+            this.trackBar1.TickFrequency = 10;
+            this.trackBar1.Value = 310;
             // 
-            // label5
+            // AutoFishDelayLabel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(146, 3);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(113, 13);
-            this.label5.TabIndex = 15;
-            this.label5.Text = "1920x1080, 1280x768";
+            this.AutoFishDelayLabel.AutoSize = true;
+            this.AutoFishDelayLabel.Location = new System.Drawing.Point(85, 260);
+            this.AutoFishDelayLabel.Name = "AutoFishDelayLabel";
+            this.AutoFishDelayLabel.Size = new System.Drawing.Size(121, 13);
+            this.AutoFishDelayLabel.TabIndex = 20;
+            this.AutoFishDelayLabel.Text = "Auto Fish Delay: 310 ms";
+            // 
+            // MountSpeedStop
+            // 
+            this.MountSpeedStop.Location = new System.Drawing.Point(117, 63);
+            this.MountSpeedStop.Name = "MountSpeedStop";
+            this.MountSpeedStop.Size = new System.Drawing.Size(38, 22);
+            this.MountSpeedStop.TabIndex = 41;
+            this.MountSpeedStop.Text = "Stop";
+            this.MountSpeedStop.UseVisualStyleBackColor = true;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(13, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(69, 13);
+            this.label3.TabIndex = 40;
+            this.label3.Text = "Mount speed";
+            // 
+            // MountSpeedButton
+            // 
+            this.MountSpeedButton.Location = new System.Drawing.Point(75, 63);
+            this.MountSpeedButton.Name = "MountSpeedButton";
+            this.MountSpeedButton.Size = new System.Drawing.Size(38, 22);
+            this.MountSpeedButton.TabIndex = 39;
+            this.MountSpeedButton.Text = "Start";
+            this.MountSpeedButton.UseVisualStyleBackColor = true;
+            // 
+            // MountSpeedNum
+            // 
+            this.MountSpeedNum.Location = new System.Drawing.Point(16, 65);
+            this.MountSpeedNum.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.MountSpeedNum.Name = "MountSpeedNum";
+            this.MountSpeedNum.Size = new System.Drawing.Size(56, 20);
+            this.MountSpeedNum.TabIndex = 38;
+            this.MountSpeedNum.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(310, 258);
+            this.ClientSize = new System.Drawing.Size(317, 329);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -1210,6 +1292,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.runSpeedNum)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.MountSpeedNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1293,6 +1377,14 @@
         private System.Windows.Forms.NumericUpDown charSizeNum;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label AutoFishDelayLabel;
+        private System.Windows.Forms.TrackBar trackBar1;
+        private System.Windows.Forms.Button MountSpeedStop;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button MountSpeedButton;
+        private System.Windows.Forms.NumericUpDown MountSpeedNum;
+        private System.Windows.Forms.Timer timer1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

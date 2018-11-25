@@ -32,6 +32,9 @@ namespace MaplestorySnipe
             Thread tCoords = new Thread(new ThreadStart(coordsThread));
             tCoords.IsBackground = true;
             tCoords.Start();
+            timer1.Enabled = true;
+            timer1.Interval = 100;
+            backgroundWorker1.WorkerSupportsCancellation = true;
         }
 
         public void addEventLog(String str) //Item sniper event log
@@ -281,6 +284,11 @@ namespace MaplestorySnipe
             else return "not fishing";
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            AutoFishDelayLabel.Text = "Auto Fish Delay: " + trackBar1.Value + " ms";
+        }
+
         public void playMini()
         {
             Thread.Sleep(1100);
@@ -301,11 +309,11 @@ namespace MaplestorySnipe
                     }
                 }*/
                 input.CastKey(getActionKey());
-                Thread.Sleep(310);
+                Thread.Sleep(trackBar1.Value);
             }
         }
-
-        private void fishingStartButton_Click(object sender, EventArgs e)
+    
+        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
         {
             if (getActionKey() != 0)
             {
@@ -331,8 +339,21 @@ namespace MaplestorySnipe
                     }
                 }
                 addEventLog2("Stopping");
+                if (backgroundWorker1.WorkerSupportsCancellation == true)
+                {
+                    backgroundWorker1.CancelAsync();
+                }
             }
             else addEventLog2("Please select your action key.");
+        }
+
+        private void fishingStartButton_Click(object sender, EventArgs e)
+        {
+            if (backgroundWorker1.IsBusy != true)
+            {
+                // Start the asynchronous operation.
+                backgroundWorker1.RunWorkerAsync();
+            }
         }
 
         private short getActionKey()
@@ -535,6 +556,19 @@ namespace MaplestorySnipe
             }
         }
 
+        private void mountSpeedThread()
+        {
+            while (!stopMount)
+            {
+                int setValue = (int)MountSpeedNum.Value;
+                while (local.MountSpeed() != setValue)
+                {
+                    local.setMountSpeed(setValue);
+                }
+                Thread.Sleep(500);
+            }
+        }
+
         private void atkSpeedButton_Click(object sender, EventArgs e)
         {
             stopAtk = false;
@@ -542,6 +576,7 @@ namespace MaplestorySnipe
             atkSpeed.IsBackground = true;
             atkSpeed.Start();
         }
+
         private void atkSpeedThread()
         {
             while (!stopAtk)
@@ -630,6 +665,13 @@ namespace MaplestorySnipe
         private void button1_Click_3(object sender, EventArgs e)
         {
             stopJump = true;
+        }
+
+        private bool stopMount;
+
+        private void MountSpeedStop_Click(object sender, EventArgs e)
+        {
+            stopMount = true;
         }
         #endregion
 
