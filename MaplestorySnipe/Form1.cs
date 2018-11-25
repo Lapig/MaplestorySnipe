@@ -25,6 +25,7 @@ namespace MaplestorySnipe
             addEventLog("\"All manual\" to set those locations as well.");
             addEventLog("---------------------------------------------------------------------------------------------");
             runSpeedNum.Value = local.MovementSpeed();
+            MountSpeedNum.Value = local.MountSpeed();
             atkSpeedNum.Value = local.AttackSpeed();
             jumpHeightNum.Value = local.JumpHeight();
             deltaSpeedNum.Value = (decimal)local.DeltaSpeed();
