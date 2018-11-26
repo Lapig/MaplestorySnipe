@@ -35,7 +35,7 @@ namespace MaplestorySnipe
             tCoords.Start();
             timer1.Enabled = true;
             timer1.Interval = 100;
-            backgroundWorker1.WorkerSupportsCancellation = true;
+            AutoFishDelayLabel.Text = string.Format("Mini-game delay: {0} ms", trackBar1.Value);
         }
 
         public void addEventLog(String str) //Item sniper event log
@@ -285,6 +285,35 @@ namespace MaplestorySnipe
             else return "not fishing";
         }
 
+        private void fishingThread()
+        {
+            if (actionKey != 0)
+            {
+                setTextEventLog("Starting fishing bot.");
+                input.setActiveWindow("maplestory2");
+                Thread.Sleep(500);
+                while (input.GetAsyncKeyState(123) == 0)
+                {
+                    switch (fishingState())
+                    {
+                        case "not fishing":
+                            input.CastKey(actionKey);
+                            Thread.Sleep(500);
+                            break;
+                        case "fishing":
+                            Thread.Sleep(50);
+                            break;
+                        case "mini-game":
+                            setTextEventLog("Mini-game detected");
+                            playMini();
+                            break;
+                    }
+                }
+                setTextEventLog("Stopping");
+            }
+            else setTextEventLog("Please select your action key.");
+        }
+
         private void timer1_Tick(object sender, EventArgs e)
         {
             AutoFishDelayLabel.Text = "Auto Fish Delay: " + trackBar1.Value + " ms";
@@ -309,57 +338,47 @@ namespace MaplestorySnipe
                         Thread.Sleep(3);
                     }
                 }*/
-                input.CastKey(getActionKey());
-                Thread.Sleep(trackBar1.Value);
+                input.CastKey(actionKey);
+                Thread.Sleep(fishingDelay);
             }
-        }
-    
-        private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
-        {
-            if (getActionKey() != 0)
-            {
-                input.setActiveWindow("maplestory2");
-                addEventLog2("Starting fishing bot");
-                setResPositions();
-                Thread.Sleep(500);
-                while (input.GetAsyncKeyState(123) == 0)
-                {
-                    switch (fishingState())
-                    {
-                        case "not fishing":
-                            input.CastKey(getActionKey());
-                            Thread.Sleep(500);
-                            break;
-                        case "fishing":
-                            Thread.Sleep(50);
-                            break;
-                        case "mini-game":
-                            addEventLog2("Mini-game detected");
-                            playMini();
-                            break;
-                    }
-                }
-                addEventLog2("Stopping");
-                if (backgroundWorker1.WorkerSupportsCancellation == true)
-                {
-                    backgroundWorker1.CancelAsync();
-                }
-            }
-            else addEventLog2("Please select your action key.");
         }
 
+        delegate void StringArgReturningVoidDelegate(string text);
+        private void setTextEventLog(string text)
+        {
+            // InvokeRequired required compares the thread ID of the
+            // calling thread to the thread ID of the creating thread.
+            // If these threads are different, it returns true.
+            if (this.xCoordLabel.InvokeRequired)
+            {
+                StringArgReturningVoidDelegate d = new StringArgReturningVoidDelegate(setTextEventLog);
+                this.Invoke(d, new object[] { text});
+            }
+            else
+            {
+                addEventLog2(text);
+            }
+        }
+
+        short actionKey;
+        int fishingDelay;
         private void fishingStartButton_Click(object sender, EventArgs e)
         {
-            if (backgroundWorker1.IsBusy != true)
-            {
-                // Start the asynchronous operation.
-                backgroundWorker1.RunWorkerAsync();
-            }
+            fishingDelay = trackBar1.Value;
+            Thread tFish = new Thread(new ThreadStart(fishingThread));
+            actionKey = getActionKey();
+            tFish.IsBackground = true;
+            tFish.Start();
         }
 
         private short getActionKey()
         {
             return getScanCode(comboBox1.Text);
+        }
+
+        private void trackBar1_ValueChanged(object sender, EventArgs e)
+        {
+            AutoFishDelayLabel.Text = string.Format("Mini-game delay: {0} ms", trackBar1.Value);
         }
         #endregion
 
@@ -557,6 +576,14 @@ namespace MaplestorySnipe
             }
         }
 
+        private void MountSpeedButton_Click(object sender, EventArgs e)
+        {
+            stopMount = false;
+            Thread mountSpeed = new Thread(new ThreadStart(mountSpeedThread));
+            mountSpeed.IsBackground = true;
+            mountSpeed.Start();
+        }
+
         private void mountSpeedThread()
         {
             while (!stopMount)
@@ -677,7 +704,7 @@ namespace MaplestorySnipe
         #endregion
 
         #region Teleportation
-        delegate void StringArgReturningVoidDelegate(string text, string text2, string text3);
+        delegate void StringArgReturningVoidDelegate2(string text, string text2, string text3);
         private void setText(string text, string text2, string text3)
         {
             // InvokeRequired required compares the thread ID of the
@@ -685,7 +712,7 @@ namespace MaplestorySnipe
             // If these threads are different, it returns true.
             if (this.xCoordLabel.InvokeRequired)
             {
-                StringArgReturningVoidDelegate d = new StringArgReturningVoidDelegate(setText);
+                StringArgReturningVoidDelegate2 d = new StringArgReturningVoidDelegate2(setText);
                 this.Invoke(d, new object[] { text, text2, text3 });
             }
             else
