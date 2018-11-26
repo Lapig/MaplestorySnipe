@@ -4,8 +4,7 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Diagnostics;
 using System.Threading;
-using MapleSnipe;
-using System.Collections.Generic;
+
 
 namespace MaplestorySnipe
 {
@@ -834,6 +833,5 @@ namespace MaplestorySnipe
             }
             return 0;
         }
-
     }
 }
