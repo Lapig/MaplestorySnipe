@@ -302,7 +302,7 @@
             // 
             this.trackBar1.LargeChange = 1;
             this.trackBar1.Location = new System.Drawing.Point(6, 0);
-            this.trackBar1.Maximum = 500;
+            this.trackBar1.Maximum = 2000;
             this.trackBar1.Minimum = 100;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(294, 45);
@@ -1134,7 +1134,7 @@
             // 
             this.atkSpeedNum.Location = new System.Drawing.Point(16, 104);
             this.atkSpeedNum.Maximum = new decimal(new int[] {
-            500,
+            9999,
             0,
             0,
             0});
