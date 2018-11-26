@@ -783,7 +783,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(13, 127);
+            this.label25.Location = new System.Drawing.Point(163, 88);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(50, 13);
             this.label25.TabIndex = 33;
@@ -791,7 +791,7 @@
             // 
             // charSizeSet
             // 
-            this.charSizeSet.Location = new System.Drawing.Point(75, 141);
+            this.charSizeSet.Location = new System.Drawing.Point(227, 102);
             this.charSizeSet.Name = "charSizeSet";
             this.charSizeSet.Size = new System.Drawing.Size(38, 22);
             this.charSizeSet.TabIndex = 32;
@@ -807,7 +807,7 @@
             0,
             0,
             65536});
-            this.charSizeNum.Location = new System.Drawing.Point(16, 143);
+            this.charSizeNum.Location = new System.Drawing.Point(165, 103);
             this.charSizeNum.Maximum = new decimal(new int[] {
             50,
             0,
@@ -872,7 +872,7 @@
             // zCoordLockCheck
             // 
             this.zCoordLockCheck.AutoSize = true;
-            this.zCoordLockCheck.Location = new System.Drawing.Point(228, 182);
+            this.zCoordLockCheck.Location = new System.Drawing.Point(230, 153);
             this.zCoordLockCheck.Name = "zCoordLockCheck";
             this.zCoordLockCheck.Size = new System.Drawing.Size(50, 17);
             this.zCoordLockCheck.TabIndex = 26;
@@ -883,7 +883,7 @@
             // yCoordLockCheck
             // 
             this.yCoordLockCheck.AutoSize = true;
-            this.yCoordLockCheck.Location = new System.Drawing.Point(124, 182);
+            this.yCoordLockCheck.Location = new System.Drawing.Point(126, 153);
             this.yCoordLockCheck.Name = "yCoordLockCheck";
             this.yCoordLockCheck.Size = new System.Drawing.Size(50, 17);
             this.yCoordLockCheck.TabIndex = 25;
@@ -894,7 +894,7 @@
             // xCoordLockCheck
             // 
             this.xCoordLockCheck.AutoSize = true;
-            this.xCoordLockCheck.Location = new System.Drawing.Point(26, 182);
+            this.xCoordLockCheck.Location = new System.Drawing.Point(28, 153);
             this.xCoordLockCheck.Name = "xCoordLockCheck";
             this.xCoordLockCheck.Size = new System.Drawing.Size(50, 17);
             this.xCoordLockCheck.TabIndex = 24;
@@ -904,7 +904,7 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(150, 247);
+            this.button6.Location = new System.Drawing.Point(152, 218);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(92, 23);
             this.button6.TabIndex = 23;
@@ -920,7 +920,7 @@
             0,
             0,
             131072});
-            this.zCoordNum.Location = new System.Drawing.Point(209, 218);
+            this.zCoordNum.Location = new System.Drawing.Point(211, 189);
             this.zCoordNum.Maximum = new decimal(new int[] {
             99,
             0,
@@ -943,7 +943,7 @@
             0,
             0,
             131072});
-            this.yCoordNum.Location = new System.Drawing.Point(106, 218);
+            this.yCoordNum.Location = new System.Drawing.Point(108, 189);
             this.yCoordNum.Maximum = new decimal(new int[] {
             99,
             0,
@@ -966,7 +966,7 @@
             0,
             0,
             131072});
-            this.xCoordNum.Location = new System.Drawing.Point(13, 218);
+            this.xCoordNum.Location = new System.Drawing.Point(15, 189);
             this.xCoordNum.Maximum = new decimal(new int[] {
             99,
             0,
@@ -983,7 +983,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(52, 247);
+            this.button5.Location = new System.Drawing.Point(54, 218);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(92, 23);
             this.button5.TabIndex = 19;
@@ -994,7 +994,7 @@
             // zCoordsLabel
             // 
             this.zCoordsLabel.AutoSize = true;
-            this.zCoordsLabel.Location = new System.Drawing.Point(206, 202);
+            this.zCoordsLabel.Location = new System.Drawing.Point(208, 173);
             this.zCoordsLabel.Name = "zCoordsLabel";
             this.zCoordsLabel.Size = new System.Drawing.Size(22, 13);
             this.zCoordsLabel.TabIndex = 18;
@@ -1003,7 +1003,7 @@
             // yCoordsLabel
             // 
             this.yCoordsLabel.AutoSize = true;
-            this.yCoordsLabel.Location = new System.Drawing.Point(103, 202);
+            this.yCoordsLabel.Location = new System.Drawing.Point(105, 173);
             this.yCoordsLabel.Name = "yCoordsLabel";
             this.yCoordsLabel.Size = new System.Drawing.Size(22, 13);
             this.yCoordsLabel.TabIndex = 17;
@@ -1012,7 +1012,7 @@
             // xCoordLabel
             // 
             this.xCoordLabel.AutoSize = true;
-            this.xCoordLabel.Location = new System.Drawing.Point(10, 202);
+            this.xCoordLabel.Location = new System.Drawing.Point(12, 173);
             this.xCoordLabel.Name = "xCoordLabel";
             this.xCoordLabel.Size = new System.Drawing.Size(22, 13);
             this.xCoordLabel.TabIndex = 16;
@@ -1021,7 +1021,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(207, 177);
+            this.label23.Location = new System.Drawing.Point(209, 148);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(15, 13);
             this.label23.TabIndex = 15;
@@ -1030,7 +1030,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(103, 177);
+            this.label22.Location = new System.Drawing.Point(105, 148);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(15, 13);
             this.label22.TabIndex = 14;
@@ -1039,7 +1039,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(10, 177);
+            this.label21.Location = new System.Drawing.Point(12, 148);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(15, 13);
             this.label21.TabIndex = 13;
