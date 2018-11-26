@@ -25,6 +25,8 @@ namespace MaplestorySnipe
         {
             internal const int MOVESPEED_1 = 0x1B4;
             internal const int MOVESPEED_2 = 0x400;
+            internal const int MOUNTSPEED_1 = 0x1B4;
+            internal const int MOUNTSPEED_2 = 0x490;
             internal const int ATKSPEED_1 = 0x1B4;
             internal const int ATKSPEED_2 = 0x3F8;
             internal const int JUMPHEIGHT_1 = 0x1B4;
@@ -110,6 +112,11 @@ namespace MaplestorySnipe
             return getValue(getAddressLevelTwo(localPlayerBase, OffSets.MOVESPEED_1, OffSets.MOVESPEED_2));
         }
 
+        public int MountSpeed()
+        {
+            return getValue(getAddressLevelTwo(localPlayerBase, OffSets.MOUNTSPEED_1, OffSets.MOUNTSPEED_2));
+        }
+
         public int JumpHeight()
         {
             return getValue(getAddressLevelTwo(localPlayerBase, OffSets.JUMPHEIGHT_1, OffSets.JUMPHEIGHT_2));
@@ -143,6 +150,11 @@ namespace MaplestorySnipe
         public void setMovementSpeed(int x)
         {
             writeValue((getAddressLevelTwo(localPlayerBase, OffSets.MOVESPEED_1, OffSets.MOVESPEED_2)), x);
+        }
+
+        public void setMountSpeed(int x)
+        {
+            writeValue((getAddressLevelTwo(localPlayerBase, OffSets.MOUNTSPEED_1, OffSets.MOUNTSPEED_2)), x);
         }
 
         public void setJumpHeight(int x)
