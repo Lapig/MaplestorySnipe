@@ -1,17 +1,8 @@
 ﻿using System;
-using System.Windows;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Threading;
-using Binarysharp.MemoryManagement;
 
 namespace MaplestorySnipe
 {
@@ -21,6 +12,7 @@ namespace MaplestorySnipe
         static Process GameProcess = Process.GetProcessesByName("maplestory2").FirstOrDefault();
         
         public IntPtr localPlayerBase = GameProcess.MainModule.BaseAddress + 0x166BA64;
+        public IntPtr targetBase = GameProcess.MainModule.BaseAddress + 0x166A118;
         public struct OffSets
         {
             internal const int MOVESPEED_1 = 0x1B4;
@@ -49,6 +41,10 @@ namespace MaplestorySnipe
             internal const int JUMP_DISTANCE_2 = 0x134;
             internal const int SIZE_1 = 0x1B4;
             internal const int SIZE_2 = 0x80;
+            internal const int TARGET_1 = 0x20;
+            internal const int TARGET_2 = 0x8;
+            internal const int TARGET_3 = 0x44;
+            internal const int TARGET_4 = 0x1F0;
         }
         public struct PlayerCoordinates
         {
@@ -128,6 +124,11 @@ namespace MaplestorySnipe
         public float DeltaSpeed()
         {
             return getValueFloat(getAddressLevelTwo(localPlayerBase, OffSets.DELTA_SPEED_1, OffSets.DELTA_SPEED_2));
+        }
+
+        public int TargetHealth()
+        {
+            return getValue(getAddressLevelFour(targetBase, OffSets.TARGET_1, OffSets.TARGET_2, OffSets.TARGET_3, OffSets.TARGET_4));
         }
 
         public PlayerCoordinates Coords()
@@ -264,38 +265,46 @@ namespace MaplestorySnipe
             while (getDistance(point) > x)
             {
                 switch (moveDirection(point))
-                {
+                { 
                     case "down":
                         moveDown();
-                        Thread.Sleep(100);
+                        input.CastKey(input.ScanCodes.SPACE);
+                        Thread.Sleep(5);
                         break;
                     case "downLeft":
                         moveDownLeft();
-                        Thread.Sleep(100);
+                        input.CastKey(input.ScanCodes.SPACE);
+                        Thread.Sleep(5);
                         break;
                     case "left":
                         moveLeft();
-                        Thread.Sleep(100);
+                        input.CastKey(input.ScanCodes.SPACE);
+                        Thread.Sleep(5);
                         break;
                     case "upLeft":
                         moveUpLeft();
-                        Thread.Sleep(100);
+                        input.CastKey(input.ScanCodes.SPACE);
+                        Thread.Sleep(5);
                         break;
                     case "up":
                         moveUp();
-                        Thread.Sleep(100);
+                        input.CastKey(input.ScanCodes.SPACE);
+                        Thread.Sleep(5);
                         break;
                     case "upRight":
                         moveUpRight();
-                        Thread.Sleep(100);
+                        input.CastKey(input.ScanCodes.SPACE);
+                        Thread.Sleep(5);
                         break;
                     case "right":
                         moveRight();
-                        Thread.Sleep(100);
+                        input.CastKey(input.ScanCodes.SPACE);
+                        Thread.Sleep(5);
                         break;
                     case "downRight":
                         moveDownRight();
-                        Thread.Sleep(100);
+                        input.CastKey(input.ScanCodes.SPACE);
+                        Thread.Sleep(5);
                         break;
                 }
             }
@@ -303,6 +312,7 @@ namespace MaplestorySnipe
             input.CastKeyUp(input.ScanCodes.A);
             input.CastKeyUp(input.ScanCodes.S);
             input.CastKeyUp(input.ScanCodes.D);
+            input.CastKeyUp(input.ScanCodes.SPACE);
         }
 
         public double angleToPoint(PointF point)
