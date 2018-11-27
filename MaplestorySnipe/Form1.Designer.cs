@@ -116,6 +116,10 @@
             this.setCoordsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.snipeRunToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
+            this.btnFlyingMountSpeedStop = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnFlyingMountSpeedStart = new System.Windows.Forms.Button();
+            this.flyingMountSpeedNum = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.maxBuyPriceBox)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.itemSniper.SuspendLayout();
@@ -135,6 +139,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.atkSpeedNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.runSpeedNum)).BeginInit();
             this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flyingMountSpeedNum)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -691,6 +696,10 @@
             // hackTool
             // 
             this.hackTool.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.hackTool.Controls.Add(this.btnFlyingMountSpeedStop);
+            this.hackTool.Controls.Add(this.label9);
+            this.hackTool.Controls.Add(this.btnFlyingMountSpeedStart);
+            this.hackTool.Controls.Add(this.flyingMountSpeedNum);
             this.hackTool.Controls.Add(this.MountSpeedStop);
             this.hackTool.Controls.Add(this.label3);
             this.hackTool.Controls.Add(this.MountSpeedButton);
@@ -737,7 +746,7 @@
             // 
             // MountSpeedStop
             // 
-            this.MountSpeedStop.Location = new System.Drawing.Point(117, 63);
+            this.MountSpeedStop.Location = new System.Drawing.Point(122, 59);
             this.MountSpeedStop.Name = "MountSpeedStop";
             this.MountSpeedStop.Size = new System.Drawing.Size(38, 22);
             this.MountSpeedStop.TabIndex = 41;
@@ -747,7 +756,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 49);
+            this.label3.Location = new System.Drawing.Point(16, 45);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(69, 13);
             this.label3.TabIndex = 40;
@@ -755,7 +764,7 @@
             // 
             // MountSpeedButton
             // 
-            this.MountSpeedButton.Location = new System.Drawing.Point(75, 63);
+            this.MountSpeedButton.Location = new System.Drawing.Point(78, 59);
             this.MountSpeedButton.Name = "MountSpeedButton";
             this.MountSpeedButton.Size = new System.Drawing.Size(38, 22);
             this.MountSpeedButton.TabIndex = 39;
@@ -765,7 +774,7 @@
             // 
             // MountSpeedNum
             // 
-            this.MountSpeedNum.Location = new System.Drawing.Point(16, 65);
+            this.MountSpeedNum.Location = new System.Drawing.Point(19, 61);
             this.MountSpeedNum.Maximum = new decimal(new int[] {
             300,
             0,
@@ -783,7 +792,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(163, 88);
+            this.label25.Location = new System.Drawing.Point(17, 119);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(50, 13);
             this.label25.TabIndex = 33;
@@ -791,7 +800,7 @@
             // 
             // charSizeSet
             // 
-            this.charSizeSet.Location = new System.Drawing.Point(227, 102);
+            this.charSizeSet.Location = new System.Drawing.Point(78, 133);
             this.charSizeSet.Name = "charSizeSet";
             this.charSizeSet.Size = new System.Drawing.Size(38, 22);
             this.charSizeSet.TabIndex = 32;
@@ -807,7 +816,7 @@
             0,
             0,
             65536});
-            this.charSizeNum.Location = new System.Drawing.Point(165, 103);
+            this.charSizeNum.Location = new System.Drawing.Point(20, 134);
             this.charSizeNum.Maximum = new decimal(new int[] {
             50,
             0,
@@ -824,7 +833,7 @@
             // 
             // deltaSpeedStop
             // 
-            this.deltaSpeedStop.Location = new System.Drawing.Point(265, 63);
+            this.deltaSpeedStop.Location = new System.Drawing.Point(268, 94);
             this.deltaSpeedStop.Name = "deltaSpeedStop";
             this.deltaSpeedStop.Size = new System.Drawing.Size(37, 22);
             this.deltaSpeedStop.TabIndex = 30;
@@ -835,7 +844,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(161, 49);
+            this.label24.Location = new System.Drawing.Point(164, 80);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(64, 13);
             this.label24.TabIndex = 29;
@@ -843,7 +852,7 @@
             // 
             // deltaSpeedStart
             // 
-            this.deltaSpeedStart.Location = new System.Drawing.Point(224, 63);
+            this.deltaSpeedStart.Location = new System.Drawing.Point(227, 94);
             this.deltaSpeedStart.Name = "deltaSpeedStart";
             this.deltaSpeedStart.Size = new System.Drawing.Size(37, 22);
             this.deltaSpeedStart.TabIndex = 28;
@@ -853,7 +862,7 @@
             // 
             // deltaSpeedNum
             // 
-            this.deltaSpeedNum.Location = new System.Drawing.Point(165, 65);
+            this.deltaSpeedNum.Location = new System.Drawing.Point(166, 96);
             this.deltaSpeedNum.Maximum = new decimal(new int[] {
             20,
             0,
@@ -872,7 +881,7 @@
             // zCoordLockCheck
             // 
             this.zCoordLockCheck.AutoSize = true;
-            this.zCoordLockCheck.Location = new System.Drawing.Point(230, 153);
+            this.zCoordLockCheck.Location = new System.Drawing.Point(235, 160);
             this.zCoordLockCheck.Name = "zCoordLockCheck";
             this.zCoordLockCheck.Size = new System.Drawing.Size(50, 17);
             this.zCoordLockCheck.TabIndex = 26;
@@ -883,7 +892,7 @@
             // yCoordLockCheck
             // 
             this.yCoordLockCheck.AutoSize = true;
-            this.yCoordLockCheck.Location = new System.Drawing.Point(126, 153);
+            this.yCoordLockCheck.Location = new System.Drawing.Point(131, 160);
             this.yCoordLockCheck.Name = "yCoordLockCheck";
             this.yCoordLockCheck.Size = new System.Drawing.Size(50, 17);
             this.yCoordLockCheck.TabIndex = 25;
@@ -894,7 +903,7 @@
             // xCoordLockCheck
             // 
             this.xCoordLockCheck.AutoSize = true;
-            this.xCoordLockCheck.Location = new System.Drawing.Point(28, 153);
+            this.xCoordLockCheck.Location = new System.Drawing.Point(33, 160);
             this.xCoordLockCheck.Name = "xCoordLockCheck";
             this.xCoordLockCheck.Size = new System.Drawing.Size(50, 17);
             this.xCoordLockCheck.TabIndex = 24;
@@ -920,7 +929,7 @@
             0,
             0,
             131072});
-            this.zCoordNum.Location = new System.Drawing.Point(211, 189);
+            this.zCoordNum.Location = new System.Drawing.Point(210, 192);
             this.zCoordNum.Maximum = new decimal(new int[] {
             99,
             0,
@@ -943,7 +952,7 @@
             0,
             0,
             131072});
-            this.yCoordNum.Location = new System.Drawing.Point(108, 189);
+            this.yCoordNum.Location = new System.Drawing.Point(107, 192);
             this.yCoordNum.Maximum = new decimal(new int[] {
             99,
             0,
@@ -966,7 +975,7 @@
             0,
             0,
             131072});
-            this.xCoordNum.Location = new System.Drawing.Point(15, 189);
+            this.xCoordNum.Location = new System.Drawing.Point(12, 192);
             this.xCoordNum.Maximum = new decimal(new int[] {
             99,
             0,
@@ -994,7 +1003,7 @@
             // zCoordsLabel
             // 
             this.zCoordsLabel.AutoSize = true;
-            this.zCoordsLabel.Location = new System.Drawing.Point(208, 173);
+            this.zCoordsLabel.Location = new System.Drawing.Point(207, 176);
             this.zCoordsLabel.Name = "zCoordsLabel";
             this.zCoordsLabel.Size = new System.Drawing.Size(22, 13);
             this.zCoordsLabel.TabIndex = 18;
@@ -1003,7 +1012,7 @@
             // yCoordsLabel
             // 
             this.yCoordsLabel.AutoSize = true;
-            this.yCoordsLabel.Location = new System.Drawing.Point(105, 173);
+            this.yCoordsLabel.Location = new System.Drawing.Point(104, 176);
             this.yCoordsLabel.Name = "yCoordsLabel";
             this.yCoordsLabel.Size = new System.Drawing.Size(22, 13);
             this.yCoordsLabel.TabIndex = 17;
@@ -1012,7 +1021,7 @@
             // xCoordLabel
             // 
             this.xCoordLabel.AutoSize = true;
-            this.xCoordLabel.Location = new System.Drawing.Point(12, 173);
+            this.xCoordLabel.Location = new System.Drawing.Point(11, 176);
             this.xCoordLabel.Name = "xCoordLabel";
             this.xCoordLabel.Size = new System.Drawing.Size(22, 13);
             this.xCoordLabel.TabIndex = 16;
@@ -1021,7 +1030,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(209, 148);
+            this.label23.Location = new System.Drawing.Point(214, 155);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(15, 13);
             this.label23.TabIndex = 15;
@@ -1030,7 +1039,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(105, 148);
+            this.label22.Location = new System.Drawing.Point(110, 155);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(15, 13);
             this.label22.TabIndex = 14;
@@ -1039,7 +1048,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(12, 148);
+            this.label21.Location = new System.Drawing.Point(17, 155);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(15, 13);
             this.label21.TabIndex = 13;
@@ -1047,7 +1056,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(265, 22);
+            this.button1.Location = new System.Drawing.Point(268, 21);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(37, 22);
             this.button1.TabIndex = 12;
@@ -1058,7 +1067,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(161, 9);
+            this.label20.Location = new System.Drawing.Point(164, 8);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(64, 13);
             this.label20.TabIndex = 11;
@@ -1066,7 +1075,7 @@
             // 
             // jumpHeightButton
             // 
-            this.jumpHeightButton.Location = new System.Drawing.Point(224, 23);
+            this.jumpHeightButton.Location = new System.Drawing.Point(227, 22);
             this.jumpHeightButton.Name = "jumpHeightButton";
             this.jumpHeightButton.Size = new System.Drawing.Size(37, 22);
             this.jumpHeightButton.TabIndex = 10;
@@ -1076,7 +1085,7 @@
             // 
             // jumpHeightNum
             // 
-            this.jumpHeightNum.Location = new System.Drawing.Point(165, 25);
+            this.jumpHeightNum.Location = new System.Drawing.Point(168, 24);
             this.jumpHeightNum.Maximum = new decimal(new int[] {
             242,
             0,
@@ -1093,7 +1102,7 @@
             // 
             // atkStop
             // 
-            this.atkStop.Location = new System.Drawing.Point(119, 102);
+            this.atkStop.Location = new System.Drawing.Point(122, 96);
             this.atkStop.Name = "atkStop";
             this.atkStop.Size = new System.Drawing.Size(38, 22);
             this.atkStop.TabIndex = 8;
@@ -1103,7 +1112,7 @@
             // 
             // runSpeedStop
             // 
-            this.runSpeedStop.Location = new System.Drawing.Point(119, 20);
+            this.runSpeedStop.Location = new System.Drawing.Point(122, 19);
             this.runSpeedStop.Name = "runSpeedStop";
             this.runSpeedStop.Size = new System.Drawing.Size(38, 22);
             this.runSpeedStop.TabIndex = 7;
@@ -1114,7 +1123,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(13, 88);
+            this.label19.Location = new System.Drawing.Point(16, 80);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(70, 13);
             this.label19.TabIndex = 6;
@@ -1122,7 +1131,7 @@
             // 
             // atkSpeedButton
             // 
-            this.atkSpeedButton.Location = new System.Drawing.Point(75, 102);
+            this.atkSpeedButton.Location = new System.Drawing.Point(78, 96);
             this.atkSpeedButton.Name = "atkSpeedButton";
             this.atkSpeedButton.Size = new System.Drawing.Size(38, 22);
             this.atkSpeedButton.TabIndex = 5;
@@ -1132,7 +1141,7 @@
             // 
             // atkSpeedNum
             // 
-            this.atkSpeedNum.Location = new System.Drawing.Point(16, 104);
+            this.atkSpeedNum.Location = new System.Drawing.Point(20, 96);
             this.atkSpeedNum.Maximum = new decimal(new int[] {
             9999,
             0,
@@ -1150,7 +1159,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(13, 7);
+            this.label18.Location = new System.Drawing.Point(16, 6);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(59, 13);
             this.label18.TabIndex = 3;
@@ -1158,7 +1167,7 @@
             // 
             // runSpeedButton
             // 
-            this.runSpeedButton.Location = new System.Drawing.Point(75, 21);
+            this.runSpeedButton.Location = new System.Drawing.Point(78, 20);
             this.runSpeedButton.Name = "runSpeedButton";
             this.runSpeedButton.Size = new System.Drawing.Size(38, 22);
             this.runSpeedButton.TabIndex = 2;
@@ -1168,7 +1177,7 @@
             // 
             // runSpeedNum
             // 
-            this.runSpeedNum.Location = new System.Drawing.Point(16, 23);
+            this.runSpeedNum.Location = new System.Drawing.Point(19, 22);
             this.runSpeedNum.Maximum = new decimal(new int[] {
             300,
             0,
@@ -1258,6 +1267,52 @@
             this.snipeRunToolTip.InitialDelay = 200;
             this.snipeRunToolTip.ReshowDelay = 40;
             // 
+            // btnFlyingMountSpeedStop
+            // 
+            this.btnFlyingMountSpeedStop.Location = new System.Drawing.Point(270, 59);
+            this.btnFlyingMountSpeedStop.Name = "btnFlyingMountSpeedStop";
+            this.btnFlyingMountSpeedStop.Size = new System.Drawing.Size(38, 22);
+            this.btnFlyingMountSpeedStop.TabIndex = 45;
+            this.btnFlyingMountSpeedStop.Text = "Stop";
+            this.btnFlyingMountSpeedStop.UseVisualStyleBackColor = true;
+            this.btnFlyingMountSpeedStop.Click += new System.EventHandler(this.btnFlyingMountSpeedStop_Click);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(164, 45);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(98, 13);
+            this.label9.TabIndex = 44;
+            this.label9.Text = "Flying mount speed";
+            // 
+            // btnFlyingMountSpeedStart
+            // 
+            this.btnFlyingMountSpeedStart.Location = new System.Drawing.Point(226, 59);
+            this.btnFlyingMountSpeedStart.Name = "btnFlyingMountSpeedStart";
+            this.btnFlyingMountSpeedStart.Size = new System.Drawing.Size(38, 22);
+            this.btnFlyingMountSpeedStart.TabIndex = 43;
+            this.btnFlyingMountSpeedStart.Text = "Start";
+            this.btnFlyingMountSpeedStart.UseVisualStyleBackColor = true;
+            this.btnFlyingMountSpeedStart.Click += new System.EventHandler(this.btnFlyingMountSpeedStart_Click);
+            // 
+            // flyingMountSpeedNum
+            // 
+            this.flyingMountSpeedNum.Location = new System.Drawing.Point(167, 61);
+            this.flyingMountSpeedNum.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.flyingMountSpeedNum.Name = "flyingMountSpeedNum";
+            this.flyingMountSpeedNum.Size = new System.Drawing.Size(56, 20);
+            this.flyingMountSpeedNum.TabIndex = 42;
+            this.flyingMountSpeedNum.Value = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1295,6 +1350,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.runSpeedNum)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flyingMountSpeedNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1385,6 +1441,10 @@
         private System.Windows.Forms.Button MountSpeedButton;
         private System.Windows.Forms.NumericUpDown MountSpeedNum;
         private System.Windows.Forms.Timer timer1;
+        private System.Windows.Forms.Button btnFlyingMountSpeedStop;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button btnFlyingMountSpeedStart;
+        private System.Windows.Forms.NumericUpDown flyingMountSpeedNum;
     }
 }
 

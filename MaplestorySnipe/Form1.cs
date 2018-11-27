@@ -28,6 +28,7 @@ namespace MaplestorySnipe
             MountSpeedNum.Value = local.MountSpeed();
             atkSpeedNum.Value = local.AttackSpeed();
             jumpHeightNum.Value = local.JumpHeight();
+            flyingMountSpeedNum.Value = (decimal)local.FlyingMountSpeed();
             deltaSpeedNum.Value = (decimal)local.DeltaSpeed();
             charSizeNum.Value = (decimal)local.CharSize();
             Thread tCoords = new Thread(new ThreadStart(coordsThread));
@@ -576,6 +577,26 @@ namespace MaplestorySnipe
             }
         }
 
+        private void btnFlyingMountSpeedStart_Click(object sender, EventArgs e)
+        {
+            stopFly = false;
+            Thread flySpeed = new Thread(new ThreadStart(flyingMountSpeedThread));
+            flySpeed.IsBackground = true;
+            flySpeed.Start();
+        }
+        private void flyingMountSpeedThread()
+        {
+            while (!stopFly)
+            {
+                float setValue = (float)flyingMountSpeedNum.Value;
+                while (local.FlyingMountSpeed() != setValue)
+                {
+                    local.setFlyingMountSpeed((float)setValue);
+                }
+                Thread.Sleep(10);
+            }
+        }
+
         private void MountSpeedButton_Click(object sender, EventArgs e)
         {
             stopMount = false;
@@ -583,7 +604,6 @@ namespace MaplestorySnipe
             mountSpeed.IsBackground = true;
             mountSpeed.Start();
         }
-
         private void mountSpeedThread()
         {
             while (!stopMount)
@@ -694,12 +714,15 @@ namespace MaplestorySnipe
         {
             stopJump = true;
         }
-
         private bool stopMount;
-
         private void MountSpeedStop_Click(object sender, EventArgs e)
         {
             stopMount = true;
+        }
+        private bool stopFly;
+        private void btnFlyingMountSpeedStop_Click(object sender, EventArgs e)
+        {
+            stopFly = false;
         }
         #endregion
 
@@ -860,5 +883,7 @@ namespace MaplestorySnipe
             }
             return 0;
         }
+
+        
     }
 }
