@@ -70,6 +70,9 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.hackTool = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.btnFlyingMountSpeedStart = new System.Windows.Forms.Button();
+            this.flyingMountSpeedNum = new System.Windows.Forms.NumericUpDown();
             this.MountSpeedStop = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
             this.MountSpeedButton = new System.Windows.Forms.Button();
@@ -116,10 +119,6 @@
             this.setCoordsToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.snipeRunToolTip = new System.Windows.Forms.ToolTip(this.components);
             this.timer1 = new System.Windows.Forms.Timer(this.components);
-            this.btnFlyingMountSpeedStop = new System.Windows.Forms.Button();
-            this.label9 = new System.Windows.Forms.Label();
-            this.btnFlyingMountSpeedStart = new System.Windows.Forms.Button();
-            this.flyingMountSpeedNum = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.maxBuyPriceBox)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.itemSniper.SuspendLayout();
@@ -129,6 +128,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.hackTool.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flyingMountSpeedNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MountSpeedNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.charSizeNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deltaSpeedNum)).BeginInit();
@@ -139,7 +139,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.atkSpeedNum)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.runSpeedNum)).BeginInit();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.flyingMountSpeedNum)).BeginInit();
             this.SuspendLayout();
             // 
             // label2
@@ -696,7 +695,6 @@
             // hackTool
             // 
             this.hackTool.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.hackTool.Controls.Add(this.btnFlyingMountSpeedStop);
             this.hackTool.Controls.Add(this.label9);
             this.hackTool.Controls.Add(this.btnFlyingMountSpeedStart);
             this.hackTool.Controls.Add(this.flyingMountSpeedNum);
@@ -743,6 +741,42 @@
             this.hackTool.Size = new System.Drawing.Size(306, 244);
             this.hackTool.TabIndex = 3;
             this.hackTool.Text = "Value Editor";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(164, 45);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(98, 13);
+            this.label9.TabIndex = 44;
+            this.label9.Text = "Flying mount speed";
+            // 
+            // btnFlyingMountSpeedStart
+            // 
+            this.btnFlyingMountSpeedStart.Location = new System.Drawing.Point(226, 59);
+            this.btnFlyingMountSpeedStart.Name = "btnFlyingMountSpeedStart";
+            this.btnFlyingMountSpeedStart.Size = new System.Drawing.Size(38, 22);
+            this.btnFlyingMountSpeedStart.TabIndex = 43;
+            this.btnFlyingMountSpeedStart.Text = "Set";
+            this.btnFlyingMountSpeedStart.UseVisualStyleBackColor = true;
+            this.btnFlyingMountSpeedStart.Click += new System.EventHandler(this.btnFlyingMountSpeedStart_Click);
+            // 
+            // flyingMountSpeedNum
+            // 
+            this.flyingMountSpeedNum.Location = new System.Drawing.Point(167, 61);
+            this.flyingMountSpeedNum.Maximum = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            this.flyingMountSpeedNum.Name = "flyingMountSpeedNum";
+            this.flyingMountSpeedNum.Size = new System.Drawing.Size(56, 20);
+            this.flyingMountSpeedNum.TabIndex = 42;
+            this.flyingMountSpeedNum.Value = new decimal(new int[] {
+            7,
+            0,
+            0,
+            0});
             // 
             // MountSpeedStop
             // 
@@ -1267,52 +1301,6 @@
             this.snipeRunToolTip.InitialDelay = 200;
             this.snipeRunToolTip.ReshowDelay = 40;
             // 
-            // btnFlyingMountSpeedStop
-            // 
-            this.btnFlyingMountSpeedStop.Location = new System.Drawing.Point(270, 59);
-            this.btnFlyingMountSpeedStop.Name = "btnFlyingMountSpeedStop";
-            this.btnFlyingMountSpeedStop.Size = new System.Drawing.Size(38, 22);
-            this.btnFlyingMountSpeedStop.TabIndex = 45;
-            this.btnFlyingMountSpeedStop.Text = "Stop";
-            this.btnFlyingMountSpeedStop.UseVisualStyleBackColor = true;
-            this.btnFlyingMountSpeedStop.Click += new System.EventHandler(this.btnFlyingMountSpeedStop_Click);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(164, 45);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(98, 13);
-            this.label9.TabIndex = 44;
-            this.label9.Text = "Flying mount speed";
-            // 
-            // btnFlyingMountSpeedStart
-            // 
-            this.btnFlyingMountSpeedStart.Location = new System.Drawing.Point(226, 59);
-            this.btnFlyingMountSpeedStart.Name = "btnFlyingMountSpeedStart";
-            this.btnFlyingMountSpeedStart.Size = new System.Drawing.Size(38, 22);
-            this.btnFlyingMountSpeedStart.TabIndex = 43;
-            this.btnFlyingMountSpeedStart.Text = "Start";
-            this.btnFlyingMountSpeedStart.UseVisualStyleBackColor = true;
-            this.btnFlyingMountSpeedStart.Click += new System.EventHandler(this.btnFlyingMountSpeedStart_Click);
-            // 
-            // flyingMountSpeedNum
-            // 
-            this.flyingMountSpeedNum.Location = new System.Drawing.Point(167, 61);
-            this.flyingMountSpeedNum.Maximum = new decimal(new int[] {
-            50,
-            0,
-            0,
-            0});
-            this.flyingMountSpeedNum.Name = "flyingMountSpeedNum";
-            this.flyingMountSpeedNum.Size = new System.Drawing.Size(56, 20);
-            this.flyingMountSpeedNum.TabIndex = 42;
-            this.flyingMountSpeedNum.Value = new decimal(new int[] {
-            7,
-            0,
-            0,
-            0});
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1339,6 +1327,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.hackTool.ResumeLayout(false);
             this.hackTool.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.flyingMountSpeedNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MountSpeedNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.charSizeNum)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deltaSpeedNum)).EndInit();
@@ -1350,7 +1339,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.runSpeedNum)).EndInit();
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.flyingMountSpeedNum)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1441,7 +1429,6 @@
         private System.Windows.Forms.Button MountSpeedButton;
         private System.Windows.Forms.NumericUpDown MountSpeedNum;
         private System.Windows.Forms.Timer timer1;
-        private System.Windows.Forms.Button btnFlyingMountSpeedStop;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnFlyingMountSpeedStart;
         private System.Windows.Forms.NumericUpDown flyingMountSpeedNum;

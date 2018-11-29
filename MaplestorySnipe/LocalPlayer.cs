@@ -20,7 +20,7 @@ namespace MaplestorySnipe
         VAMemory vam = new VAMemory("maplestory2");
         static Process GameProcess = Process.GetProcessesByName("maplestory2").FirstOrDefault();
         
-        public IntPtr localPlayerBase = GameProcess.MainModule.BaseAddress + 0x166BA64;
+        public IntPtr localPlayerBase = GameProcess.MainModule.BaseAddress + 0x166CAE4;
         public struct OffSets
         {
             internal const int MOVESPEED_1 = 0x1B4;

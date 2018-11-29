@@ -98,7 +98,7 @@ namespace MaplestorySnipe
         public int min = 999999999;
         public int getPrice()
         {
-            IntPtr Base = GameProcess.MainModule.BaseAddress + 0x166C734;
+            IntPtr Base = GameProcess.MainModule.BaseAddress + 0x166D7B4;
             IntPtr base1 = IntPtr.Add((IntPtr)vam.ReadInt32(Base), 0x20);
             IntPtr base2 = IntPtr.Add((IntPtr)vam.ReadInt32(base1), 0xC);
             IntPtr base3 = IntPtr.Add((IntPtr)vam.ReadInt32(base2), 0x40);
@@ -274,7 +274,7 @@ namespace MaplestorySnipe
         #region Fishing Bot
         public string fishingState()
         {
-            IntPtr Base = GameProcess.MainModule.BaseAddress + 0x166A118;
+            IntPtr Base = GameProcess.MainModule.BaseAddress + 0x166B198;
             IntPtr base1 = IntPtr.Add((IntPtr)vam.ReadInt32(Base), 0x20);
             IntPtr base2 = IntPtr.Add((IntPtr)vam.ReadInt32(base1), 0x84);
             IntPtr base3 = IntPtr.Add((IntPtr)vam.ReadInt32(base2), 0x20);
@@ -586,15 +586,12 @@ namespace MaplestorySnipe
         }
         private void flyingMountSpeedThread()
         {
-            while (!stopFly)
+            float setValue = (float)flyingMountSpeedNum.Value;
+            if (local.FlyingMountSpeed() != setValue)
             {
-                float setValue = (float)flyingMountSpeedNum.Value;
-                while (local.FlyingMountSpeed() != setValue)
-                {
-                    local.setFlyingMountSpeed((float)setValue);
-                }
-                Thread.Sleep(10);
+                local.setFlyingMountSpeed((float)setValue);
             }
+            
         }
 
         private void MountSpeedButton_Click(object sender, EventArgs e)
