@@ -98,10 +98,11 @@ public class input
         internal const int V = 0x2F;
         internal const int N = 0x31;
         internal const int M = 0x32;
-        internal const int UP = 0x48;
+        internal const int UP = 0x98;
         internal const int DOWN = 0x50;
         internal const int LEFT = 0x4B;
         internal const int RIGHT = 0x4D;
+        internal const int NUMLOCK = 0x45;
     }
 
     //used to simulate dx key presses

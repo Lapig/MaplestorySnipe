@@ -70,6 +70,7 @@
             this.comboBox3 = new System.Windows.Forms.ComboBox();
             this.comboBox2 = new System.Windows.Forms.ComboBox();
             this.hackTool = new System.Windows.Forms.TabPage();
+            this.btnStopFly = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
             this.btnFlyingMountSpeedStart = new System.Windows.Forms.Button();
             this.flyingMountSpeedNum = new System.Windows.Forms.NumericUpDown();
@@ -695,6 +696,7 @@
             // hackTool
             // 
             this.hackTool.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.hackTool.Controls.Add(this.btnStopFly);
             this.hackTool.Controls.Add(this.label9);
             this.hackTool.Controls.Add(this.btnFlyingMountSpeedStart);
             this.hackTool.Controls.Add(this.flyingMountSpeedNum);
@@ -742,6 +744,16 @@
             this.hackTool.TabIndex = 3;
             this.hackTool.Text = "Value Editor";
             // 
+            // btnStopFly
+            // 
+            this.btnStopFly.Location = new System.Drawing.Point(268, 59);
+            this.btnStopFly.Name = "btnStopFly";
+            this.btnStopFly.Size = new System.Drawing.Size(37, 22);
+            this.btnStopFly.TabIndex = 45;
+            this.btnStopFly.Text = "Stop";
+            this.btnStopFly.UseVisualStyleBackColor = true;
+            this.btnStopFly.Click += new System.EventHandler(this.btnStopFly_Click);
+            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -757,7 +769,7 @@
             this.btnFlyingMountSpeedStart.Name = "btnFlyingMountSpeedStart";
             this.btnFlyingMountSpeedStart.Size = new System.Drawing.Size(38, 22);
             this.btnFlyingMountSpeedStart.TabIndex = 43;
-            this.btnFlyingMountSpeedStart.Text = "Set";
+            this.btnFlyingMountSpeedStart.Text = "Start";
             this.btnFlyingMountSpeedStart.UseVisualStyleBackColor = true;
             this.btnFlyingMountSpeedStart.Click += new System.EventHandler(this.btnFlyingMountSpeedStart_Click);
             // 
@@ -1313,7 +1325,7 @@
             this.MaximizeBox = false;
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.Manual;
-            this.Text = "MapleSnipe v1.9";
+            this.Text = "MapleSnipe v2.0";
             ((System.ComponentModel.ISupportInitialize)(this.maxBuyPriceBox)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.itemSniper.ResumeLayout(false);
@@ -1432,6 +1444,7 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button btnFlyingMountSpeedStart;
         private System.Windows.Forms.NumericUpDown flyingMountSpeedNum;
+        private System.Windows.Forms.Button btnStopFly;
     }
 }
 

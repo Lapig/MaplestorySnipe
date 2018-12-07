@@ -20,7 +20,7 @@ namespace MaplestorySnipe
         VAMemory vam = new VAMemory("maplestory2");
         static Process GameProcess = Process.GetProcessesByName("maplestory2").FirstOrDefault();
         
-        public IntPtr localPlayerBase = GameProcess.MainModule.BaseAddress + 0x166CAE4;
+        public IntPtr localPlayerBase = GameProcess.MainModule.BaseAddress + 0x1672BA4;
         public struct OffSets
         {
             internal const int MOVESPEED_1 = 0x1B4;
@@ -55,6 +55,8 @@ namespace MaplestorySnipe
             internal const int JUMP_DISTANCE_2 = 0x134;
             internal const int SIZE_1 = 0x1B4;
             internal const int SIZE_2 = 0x80;
+            internal const int MOUNTST_1 = 0x1B4;
+            internal const int MOUNTST_2 = 0x2430;
         }
         public struct PlayerCoordinates
         {
@@ -144,6 +146,11 @@ namespace MaplestorySnipe
         public float DeltaSpeed()
         {
             return getValueFloat(getAddressLevelTwo(localPlayerBase, OffSets.DELTA_SPEED_1, OffSets.DELTA_SPEED_2));
+        }
+
+        public int MountStatus()
+        {
+            return getValue(getAddressLevelTwo(localPlayerBase, OffSets.MOUNTST_1, OffSets.MOUNTST_2));
         }
 
         public PlayerCoordinates Coords()
